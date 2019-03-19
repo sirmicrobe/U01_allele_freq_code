@@ -444,4 +444,38 @@ dunnTest(gene_divers_df_ramp$gene_divers_shan ~ as.factor(gene_divers_df_ramp$bp
 #10  B_10 - P_10 -0.50451955 0.613896327
 #12 B_12 - P_12 -0.07761839 0.938131611
 
-#END
+                                            
+############ Plotting MIC over time ################   
+mic <- read.csv("stats_MIC.csv",header=F)
+colnames(mic) <- mic[1,]
+colnames(mic) <- c("pop",0,1,3,4,6,7,9,10,12)
+mic <- mic[-1,]
+
+m_mic<- (melt(mic,id.vars = c("pop")))
+
+sum_mic <- summarySE(m_mic,measurevar=c("value"),groupvars=c("day","variable"))
+colnames(sum_mic) <- c("pop","day","N", "mic","sd","se","ci")
+sum_mic$b_p <- c(rep("b",27),rep("p",27)) 
+sum_mic[45,4] <- 32
+sum2_mic <- summarySE(sum_mic,measurevar=c("mic"),groupvars=c("b_p","day"))
+sum_mic$day <- as.numeric(as.character(sum_mic$day))
+
+m2_mic <- sum2_mic[,c(1,2,4,7)]
+m2_mic$day <- as.numeric(as.character(m2_mic$day))
+m2_mic$cilend <- m2_mic$mic-0.5*m2_mic$ci
+m2_mic$ciuend <- m2_mic$mic+0.5*m2_mic$ci
+
+p  + geom_vline(xintercept=c(3.1,6.1,9.1),linetype="dashed",alpha=0.4) + # add vertical line
+  geom_hline(yintercept=c(.5),linetype="dashed") +  #add horizontal line
+  scale_color_manual("",values=c("blue","red")) + # color points red and blue
+  geom_ribbon(data=m2_mic, aes(ymin=mic,ymax=ciuend,linetype=NA),alpha=0.2) + #add shaded CI using m2_mic
+  scale_fill_manual("",values="grey70") + # fill the CI with grey color
+  scale_x_continuous(breaks=c(0,2,4,6,8,10,12)) + #add the tick marks to x-axis
+  xlab("Time (days)") + #label x-axis
+  ylab(expression(Minimum~Inhibitory~Concentration~(mg~L^-1))) + #label y-axis (use expression() for exponent)
+  theme(text = element_text(size=18, face="bold")) +#bold text and increase font
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank()) + #remove gridlines
+  scale_y_continuous(trans="log2") #convert y axis to log2 scale
+
+                                            
+  #END
