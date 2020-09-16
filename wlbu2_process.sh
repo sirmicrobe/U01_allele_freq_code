@@ -35,7 +35,7 @@ python /home/cwm47/build/gscripts/BreseqCat.py -p -d /home/cwm47/abaum/uo1/jeffr
 #check outputs
 for i in {41..60}; do echo breseq_$i && ls breseq_$i/output/; done
 
-
+#Subtract the ancestral mutations (and false positives) from all evolved populations
 for i in {41..60}; do gdtools SUBTRACT -o ./gdtools/"$i"_subtractref_output.gd breseq_"$i"/output/output.gd /home/cwm47/abaum/uo1/jeffrey_wlbu2/populations_rerun/breseq_55/output/output.gd; done
 #annotate each gdtools file
 for i in {41..60}; do gdtools ANNOTATE -o ./gdtools/"$i"_subtractref_output.txt -f TSV -r /home/cwm47/ref_genomes/Paeruginosa/PA14_8-25-20_GCF_000014625.1_ASM1462v1_genomic.gbff ./gdtools/"$i"_subtractref_output.gd; done
