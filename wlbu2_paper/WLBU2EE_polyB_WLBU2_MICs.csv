@@ -1,0 +1,40 @@
+"","experiment","sample","rep","secondary","polB-MIC","WLBU2-MIC"
+"1","Mutator","mutS",1,"Ancestor",64,8
+"2","Mutator","mutS",2,"Ancestor",64,4
+"3","Mutator","mutS",3,"Ancestor",64,4
+"4","Mutator","Pop1",1,"Biofilm",256,24
+"5","Mutator","Pop1",2,"Biofilm",512,24
+"6","Mutator","Pop1",3,"Biofilm",128,48
+"7","Mutator","Pop2",1,"Biofilm",1024,12
+"8","Mutator","Pop2",2,"Biofilm",1024,12
+"9","Mutator","Pop2",3,"Biofilm",1024,24
+"10","Mutator","Pop3",1,"Biofilm",32,16
+"11","Mutator","Pop3",2,"Biofilm",32,16
+"12","Mutator","Pop3",3,"Biofilm",128,4
+"13","Mutator","Pop1",1,"Planktonic",1024,48
+"14","Mutator","Pop1",2,"Planktonic",1024,24
+"15","Mutator","Pop1",3,"Planktonic",1024,48
+"16","Mutator","Pop2",1,"Planktonic",1024,12
+"17","Mutator","Pop2",2,"Planktonic",1024,12
+"18","Mutator","Pop2",3,"Planktonic",1024,24
+"19","Subinhibitory","WT",1,"Ancestor",0.25,4
+"20","Subinhibitory","WT",2,"Ancestor",0.25,4
+"21","Subinhibitory","WT",3,"Ancestor",0.25,4
+"22","Subinhibitory","Pop1",1,"Population 1",1,16
+"23","Subinhibitory","Pop1",2,"Population 1",2,16
+"24","Subinhibitory","Pop1",3,"Population 1",2,16
+"25","Subinhibitory","Sm",1,"Population 1",2,8
+"26","Subinhibitory","Sm",2,"Population 1",1,16
+"27","Subinhibitory","Sm",3,"Population 1",2,16
+"28","Subinhibitory","Wr",1,"Population 1",1,16
+"29","Subinhibitory","Wr",2,"Population 1",1,16
+"30","Subinhibitory","Wr",3,"Population 1",1,32
+"31","Subinhibitory","Pop2",1,"Population 2",2,32
+"32","Subinhibitory","Pop2",2,"Population 2",4,8
+"33","Subinhibitory","Pop2",3,"Population 2",2,8
+"34","Subinhibitory","Sm",1,"Population 2",1,32
+"35","Subinhibitory","Sm",2,"Population 2",1,16
+"36","Subinhibitory","Sm",3,"Population 2",1,16
+"37","Subinhibitory","Sc",1,"Population 2",2,16
+"38","Subinhibitory","Sc",2,"Population 2",2,8
+"39","Subinhibitory","Sc",3,"Population 2",4,8
