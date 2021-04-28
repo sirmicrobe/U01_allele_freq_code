@@ -465,6 +465,13 @@ m2_mic$day <- as.numeric(as.character(m2_mic$day))
 m2_mic$cilend <- m2_mic$mic-0.5*m2_mic$ci
 m2_mic$ciuend <- m2_mic$mic+0.5*m2_mic$ci
 
+#plot biofilm vs planktonic MICs with 95% CI
+p <- ggplot(sum_mic,aes(x=day,y=mic,color=b_p)) + 
+  geom_point() + 
+  geom_line(data=m2_mic,aes(x=day,y=mic)) + #add line from m2_mic average
+  geom_errorbar(data=sum_mic, aes(ymin=mic-(0.5*ci),ymax=mic+(0.5*ci)),width=0) #add CI error bars for each point
+
+                                            
 p  + geom_vline(xintercept=c(3.1,6.1,9.1),linetype="dashed",alpha=0.4) + # add vertical line
   geom_hline(yintercept=c(.5),linetype="dashed") +  #add horizontal line
   scale_color_manual("",values=c("blue","red")) + # color points red and blue
